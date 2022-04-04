@@ -3,6 +3,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 
+.info{
+  display: none;
+}
 
 
 html, body {
@@ -571,7 +574,7 @@ hr {
   }
 
   .heading {
-    margin-bottom: 10px;
+    margin-top: 8vh;
   }
 
   .game-container {
@@ -748,7 +751,7 @@ hr {
   }
 
   .game-container {
-    margin-top: 15vh;
+    margin-top: 6vh;
   }
 
   .tile {
@@ -764,6 +767,12 @@ hr {
   .game-message .lower {
     margin-top: 30px !important;
   }
+  
+  .info{
+  display: block;
+    font-size: 14px;
+    margin-top: 40px;
+}
  }
   
 
@@ -1264,7 +1273,7 @@ KeyboardInputManager.prototype.listen = function () {
   var gestures = [Hammer.DIRECTION_UP, Hammer.DIRECTION_RIGHT,
                   Hammer.DIRECTION_DOWN, Hammer.DIRECTION_LEFT];
 
-  var gameContainer = document.getElementsByClassName("container")[0];
+  var gameContainer = document.getElementsByClassName("game-container")[0];
   var handler       = Hammer(gameContainer, {
     drag_block_horizontal: true,
     drag_block_vertical: true
@@ -1305,10 +1314,10 @@ Tile.prototype.updatePosition = function (position) {
 <body >
 <div class="container">
   <div class="heading">
-    <h1 class="title">2048</h1>
+    <h1 class="title"><span style="color: #f58981;">2</span><span style="color: #afe471;">0</span><span style="color: #3bccde;">4</span><span style="color: #f875a2;">8</span></h1>
     <div class="score-container">0</div>
   </div>
-
+  
   <div class="game-container">
     <div class="game-message">
       <p></p>
@@ -1349,6 +1358,8 @@ Tile.prototype.updatePosition = function (position) {
     </div>
   </div>
 
+  
+  <div class="info" > <b>HOW TO PLAY:</b> Use your arrow keys or gestures to move the tiles. Tiles with the same number merge into one when they touch. Add them up to reach 2048!</div>
  
 </div>
 
