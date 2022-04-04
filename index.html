@@ -5,6 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&display=swap');
 
 .info{
   display: none;
@@ -38,7 +39,8 @@ h1.title {
   margin: 0;
   display: block;
   float: left;
-    font-family: 'Vast Shadow',"Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Anek Bangla','Vast Shadow',"Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	line-height: 70px;
 }
 
 @-webkit-keyframes move-up {
@@ -366,32 +368,32 @@ hr {
 }
 .tile.tile-2 {
   background: #c7b7b1;
-  color: #bfaca6;
+  color: #594640;
 
 }
 .tile.tile-4 {
   background: #ff8279;
-    color: #ff7065;
+    color: #cc0f00;
 
 }
 .tile.tile-8 {
-  color: #ffb13e;
+  color: #ff9800;
   background: #ffb952;
 }
 .tile.tile-16 {
-  color: #ffe924;
+  color: #ffd200;
   background: #ffef5f;
 }
 .tile.tile-32 {
-  color: #afe471;
+  color: #86d629;
   background: #b8e781;
 }
 .tile.tile-64 {
-  color: #53bb57;
+  color: #39933d;
   background: #61c165;
 }
 .tile.tile-128 {
-  color: #3bccde;
+  color: #1d9eaf;
   background: #4cd0e1;
 
   font-size: 45px;
@@ -402,7 +404,7 @@ hr {
   }
 }
 .tile.tile-256 {
-  color: #3a8ac9;
+  color: #215278;
   background: #4993cd;
 
   font-size: 45px;
@@ -413,7 +415,7 @@ hr {
   }
 }
 .tile.tile-512 {
-  color: #9a70e3;
+  color: #6a2ad5;
   background: #a680e6;
  
   font-size: 45px;
@@ -424,7 +426,7 @@ hr {
   }
 }
 .tile.tile-1024 {
-  color: #f875a2;
+  color: #c20a49;
   background: #f988af;
 
   font-size: 35px;
@@ -435,7 +437,7 @@ hr {
   }
 }
 .tile.tile-2048 {
-  color: #d9d9d9;
+  color: #f8fce1;
   background: #504f4f;
 
   font-size: 35px;
@@ -568,6 +570,7 @@ hr {
 
   h1.title {
     font-size: 50px;
+	line-height: 40px;
   }
 
   .container {
@@ -786,6 +789,27 @@ hr {
 
 </style>
 <script type="text/javascript">
+
+let banglaNumber = {
+  0: "০",
+  1: "১",
+  2: "২",
+  3: "৩",
+  4: "৪",
+  5: "৫",
+  6: "৬",
+  7: "৭",
+  8: "৮",
+  9: "৯",
+};
+const engToBdNum = (str) => {
+console.log(str);
+  for (var x in banglaNumber) {
+    str = str.toString().replace(new RegExp(x, "g"), banglaNumber[x]);
+  }
+  return str;
+};
+
  document.addEventListener("DOMContentLoaded", function () {
   // Wait till the browser is ready to render the game (avoids glitches)
   window.requestAnimationFrame(function () {
@@ -1152,7 +1176,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   var classes = ["tile", "tile-" + tile.value, positionClass];
   this.applyClasses(element, classes);
 
-  element.textContent = tile.value;
+  element.textContent = engToBdNum(tile.value);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -1196,12 +1220,12 @@ HTMLActuator.prototype.updateScore = function (score) {
   var difference = score - this.score;
   this.score = score;
 
-  this.scoreContainer.textContent = this.score;
+  this.scoreContainer.textContent = engToBdNum(this.score);
 
   if (difference > 0) {
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
-    addition.textContent = "+" + difference;
+    addition.textContent = "+" + engToBdNum(difference);
 
     this.scoreContainer.appendChild(addition);
   }
@@ -1320,7 +1344,7 @@ Tile.prototype.updatePosition = function (position) {
 <body >
 <div class="container">
   <div class="heading">
-    <h1 class="title"><span style="color: #f58981;">2</span><span style="color: #afe471;">0</span><span style="color: #3bccde;">4</span><span style="color: #f875a2;">8</span></h1>
+    <h1 class="title"><span style="color: #f58981;">২</span><span style="color: #afe471;">০</span><span style="color: #3bccde;">৪</span><span style="color: #f875a2;">৮</span></h1>
     <div class="score-container">0</div>
   </div>
   
